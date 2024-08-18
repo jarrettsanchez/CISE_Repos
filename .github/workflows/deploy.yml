@@ -11,14 +11,11 @@ on:
 jobs:
   Test:
     if: github.event.pull_request.merged == true
-    uses: jarrettsanchez/CISE_REPOS/.github/workflows/test.yml@develop
+    uses: jarrettsanchez/CISE_Repos/.github/workflows/test.yml@develop
 
   Deploy-Production:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./worksheet4/frontend/
 
     needs: [Test]
     steps:
